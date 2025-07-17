@@ -192,7 +192,7 @@ VALUES (1, 'raul@example.com');
 ```
 ✅ 8. TEXT (köhnə)  
 Çox uzun mətn (2GB-a qədər).
-Nümunə: məqalə, təsvir.
+Nümunə: məqalə, təsvir.<br>
 Amma yenilərdə VARCHAR(MAX) daha çox tövsiyə olunur.
 ```bash
 CREATE TABLE BlogPosts (
