@@ -28,10 +28,11 @@ Note : bu yuklediyimiz , senin sql codes, yeni database qurulmasi ucun istifade 
 */
 
 https://go.microsoft.com/fwlink/?linkid=2257624&clcid=0x409  (bu versiya 19)
+<br>
 https://go.microsoft.com/fwlink/?linkid=2313753&clcid=0x409  (bu versiya 20)
 
 
--- ILK DERS :
+
 
 # Database yaratmaq
 ```bash 
