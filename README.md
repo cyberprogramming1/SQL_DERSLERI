@@ -89,3 +89,144 @@ drop database baslangic;
 drop command ise table ozu hemcinin yaratdigimiz database ozunu silmek ucun istifade olunur
 
 #  table yaratmaq , adini deyismek, silmek . 
+```bash
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+);
+```
+1. Note : datatype ne demekdir ?
+table ( cedvel) yaradarken her bir columns(sutunlar) oz daxilinde hansi nov datas(melumatlari) saxlayacaq. onlarin
+novlerini ( yeni types) teyin etmek ucun istifade olunur.
+
+✅ 1. INT
+Tam ədəd (−2 milyarddan +2 milyarda qədər).
+Nümunə: yaş, say.
+```bash
+CREATE TABLE Users (
+    UserID INT,
+    Age INT
+);
+
+INSERT INTO Users (UserID, Age)
+VALUES (1, 25);
+```
+✅ 2. BIGINT
+Çox böyük tam ədəd (64-bit).
+Nümunə: əhali, böyük ID-lər.
+```bash
+CREATE TABLE PopulationStats (
+    Country VARCHAR(50),
+    Population BIGINT
+);
+
+INSERT INTO PopulationStats (Country, Population)
+VALUES ('India', 1400000000);
+
+```
+✅ 3. DECIMAL(p, s) / NUMERIC(p, s)
+Dəqiq onluq ədəd. p – ümumi rəqəm, s – onluq hissə.
+Nümunə: qiymət, pul.
+```bash
+CREATE TABLE Products (
+    ProductName VARCHAR(50),
+    Price DECIMAL(10, 2)
+);
+
+INSERT INTO Products (ProductName, Price)
+VALUES ('Laptop', 1299.99);
+
+```
+✅ 4. FLOAT
+Təxmini onluq ədəd (real ədəd).
+Nümunə: temperatur, faiz.
+```bash
+CREATE TABLE Sensors (
+    SensorID INT,
+    Temperature FLOAT
+);
+
+INSERT INTO Sensors (SensorID, Temperature)
+VALUES (1, 36.75);
+
+```
+✅ 5. BIT
+Boolean – 0 və ya 1.
+Nümunə: aktiv/passiv, doğru/səhv.
+```bash
+CREATE TABLE Accounts (
+    Username VARCHAR(50),
+    IsActive BIT
+);
+
+INSERT INTO Accounts (Username, IsActive)
+VALUES ('Raul', 1);
+
+```
+✅ 6. CHAR(n)
+Sabit uzunluqlu mətn.
+Nümunə: ISO kodu, bərabər uzunluqlu dəyərlər.
+```bash
+CREATE TABLE Countries (
+    CountryCode CHAR(2),
+    Name VARCHAR(50)
+);
+
+INSERT INTO Countries (CountryCode, Name)
+VALUES ('AZ', 'Azerbaijan');
+
+```
+✅ 7. VARCHAR(n)
+Dəyişən uzunluqlu mətn.
+Nümunə: ad, email, ünvan.
+```bash
+CREATE TABLE Emails (
+    UserID INT,
+    Email VARCHAR(100)
+);
+
+INSERT INTO Emails (UserID, Email)
+VALUES (1, 'raul@example.com');
+```
+✅ 8. TEXT (köhnə)  
+Çox uzun mətn (2GB-a qədər).
+Nümunə: məqalə, təsvir.
+Amma yenilərdə VARCHAR(MAX) daha çox tövsiyə olunur.
+```bash
+CREATE TABLE BlogPosts (
+    Title VARCHAR(100),
+    Content TEXT
+);
+
+INSERT INTO BlogPosts (Title, Content)
+VALUES ('MSSQL Nümunələri', 'Bu gün SQL data typelərini öyrəndik...');
+
+```
+
+✅ 9. DATE
+Yalnız tarix (YYYY-MM-DD).
+Nümunə: doğum tarixi.
+```bash
+CREATE TABLE Employees (
+    Name VARCHAR(50),
+    BirthDate DATE
+);
+
+INSERT INTO Employees (Name, BirthDate)
+VALUES ('Aynura', '1998-04-15');
+```
+✅ 10. DATETIME
+Tarix və vaxt birlikdə (YYYY-MM-DD hh:mm:ss).
+Nümunə: qeydiyyat tarixi.
+```bash
+CREATE TABLE Logins (
+    Username VARCHAR(50),
+    LoginTime DATETIME
+);
+
+INSERT INTO Logins (Username, LoginTime)
+VALUES ('Raul', '2025-07-17 20:30:00');
+
+```
