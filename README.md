@@ -230,3 +230,31 @@ INSERT INTO Logins (Username, LoginTime)
 VALUES ('Raul', '2025-07-17 20:30:00');
 
 ```
+
+# SQL alter table statement 
+
+1. ALTER TABLE => mövcud cədvəldə sütunları əlavə etmək, silmək və ya dəyişdirmək üçün istifadə olunur.<br>
+2. ALTER TABLE => həmçinin mövcud cədvələ müxtəlif məhdudiyyətlər əlavə etmək və buraxmaq üçün istifadə olunur.
+```bash
+ALTER TABLE table_name
+ADD column_name datatype;
+```
+table'dan her hansi bir column'u(sutunu) silmek ucun . 
+```bash
+ALTER TABLE table_name
+DROP COLUMN column_name;
+```
+Cədvəldəki sütunun adını dəyişmək üçün.
+```bash
+ALTER TABLE table_name
+RENAME COLUMN old_name to new_name;
+```
+SQL Serverdə cədvəldəki sütunun adını dəyişmək üçün aşağıdakı sintaksisdən istifadə edin:
+```bash
+EXEC sp_rename 'table_name.old_name',  'new_name', 'COLUMN';
+```
+Cədvəldəki sütunun məlumat növünü (data type) dəyişdirmək üçün
+```bash
+ALTER TABLE table_name
+ALTER COLUMN column_name datatype;
+```
