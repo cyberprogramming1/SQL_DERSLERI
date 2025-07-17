@@ -258,3 +258,30 @@ Cədvəldəki sütunun məlumat növünü (data type) dəyişdirmək üçün
 ALTER TABLE table_name
 ALTER COLUMN column_name datatype;
 ```
+
+# Cedvele nece data'lari elave etmek lazimdir.
+``` bash
+insert into table_name values ('','','');
+```
+1. Note : eyni anda daha cox melumat elave ede bilersen.
+```bash 
+insert into table_name values ('','',''),('','',''),('','',''),('','',''),('','','')
+```
+# Cedveldeki melumatlarin redakte edilmesi .
+Update - movcud datanin yeniden redakte edilmesidir. update method esasen 'Identity' ye gore aparilir.
+```bash
+CREATE TABLE Users (
+    UserID INT,
+    Name VARCHAR(50),
+    Age INT
+);
+
+INSERT INTO Users (UserID, Name, Age)
+VALUES (1, 'Raul', 25);
+```
+İndi adını və yaşını dəyişmək istəyirsənsə:
+```bash
+UPDATE Users
+SET Name = 'Raul Yarmemmedov', Age = 26
+WHERE UserID = 1;
+```
