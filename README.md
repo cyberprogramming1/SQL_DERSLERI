@@ -1,6 +1,6 @@
--- SQL Dersleri :
+#  SQL Dersleri :
 
-/*
+
 SQL (Structured Query Language) — Verilənlər bazasında saxlanan məlumatlarla 
 işləmək üçün istifadə olunan xüsusi bir dildir.
 Məsələn, sən bir cədvəldə adlar, telefon nömrələri və ünvanlar saxlayırsansa, SQL vasitəsilə bunları:
@@ -8,11 +8,11 @@ Məsələn, sən bir cədvəldə adlar, telefon nömrələri və ünvanlar saxla
 •	Seçə bilərsən
 •	Dəyişə bilərsən
 •	Silə bilərsən
-*/
 
--- SQL Server  yuklemek ucun steps :
 
--- SQL Server Download :
+
+
+# SQL Server Download :
 https://go.microsoft.com/fwlink/p/?linkid=2215158&clcid=0x409&culture=en-us&country=us
 
 /*
@@ -22,40 +22,51 @@ Download steps :
 3. Install edirik.
 */
 
--- SQL server management studio yuklemek :
+# SQL server management studio yuklemek :
 /*
 Note : bu yuklediyimiz , senin sql codes, yeni database qurulmasi ucun istifade edeceyin enviroment’dir (yeni muhit)
 */
+
 https://go.microsoft.com/fwlink/?linkid=2257624&clcid=0x409  (bu versiya 19)
 https://go.microsoft.com/fwlink/?linkid=2313753&clcid=0x409  (bu versiya 20)
 
 
 -- ILK DERS :
 
--- Database yaratmaq
+# Database yaratmaq
+```bash 
 create DATABASE ILK_ders;
+```
 
--- Database silmek 
+# Database silmek 
+```bash
 drop database ILK_ders;
-/*
-Note : eger biz database sildiyimiz zaman onun daxilinde islek veziyyetde oluruqsa onda bize error mesaj cixardacaq
+```
+
+
+# Note :
+eger biz database sildiyimiz zaman onun daxilinde islek veziyyetde oluruqsa onda bize error mesaj cixardacaq
 onu hell elemek ucun biz master database kecid elemeliyik.
-*/
+```bash
 use master ;
 go ;
 drop database ILK_ders;
+```
 
--- database adini deyismek .
+# database adini deyismek .
+```bash
 exec sp_renamedb 'ILK_ders', 'baslangic';
-
-/* 
+```
+# note :
 neticede database adini baslangic olaraq deyisdirdik
-*/
+
+# Comment nedir:
+Sql 'de 2 cur comment var. 
+1. --  (ancaq 1 setirlik informasiya yada qeyd elave etmek ucun istifade olunur)
+2. /**/  (daha cox informasiya elave etmek ucun istifade olunur)
 
 
-comments izahi vermek lazimdir . -- /**/
-
--- silmek commands ve ferqleri .
+# silmek commands ve ferqleri .
 
 -- Delete command
 DELETE from employees where department ='hr'
