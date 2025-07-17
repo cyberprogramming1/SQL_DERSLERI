@@ -69,27 +69,23 @@ Sql 'de 2 cur comment var.
 
 # silmek commands ve ferqleri .
 
--- Delete command
+1. Delete command
+```bash
 DELETE from employees where department ='hr'
-/*
-delete command table olan rows one by one method ile silir . yeni funksiyalligdan istifade ederek.
-*/
+```
+delete command table olan rows(yeni setirleri) one by one method ile silir . yeni funksiyalligdan istifade ederek.
 
--- Truncate command
-
+2. Truncate command
+```bash
 truncate table employees;
-/*
+```
 bu command ise table olan butun rows birge silir
-*/
 
--- Drop command
+3. Drop command
+```bash
 drop table employees;
 drop database baslangic;
-
-/*
+```
 drop command ise table ozu hemcinin yaratdigimiz database ozunu silmek ucun istifade olunur
-*/
 
-
-
--- table yaratmaq , adini deyismek, silmek . 
+#  table yaratmaq , adini deyismek, silmek . 
