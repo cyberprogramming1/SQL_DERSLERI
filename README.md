@@ -285,3 +285,24 @@ UPDATE Users
 SET Name = 'Raul Yarmemmedov', Age = 26
 WHERE UserID = 1;
 ```
+
+# Primary Key nedir ve identity(1,1) nedir ?
+primary key - cedvel yaradanda bize lazim olan ID'lerin (tek) yeni unique olmasidir. bu prosesi sql'de 
+tesdiq eden primary key sayilir.
+
+identity (1,1) = ise bizim qeyd etdiyimiz ID'lerin deyerlerini ardicillgini berpa etmesi ucundur. 
+hal hazirda yazdigimi (1,1) formasi o demekdir ki id = 1 den baslayir ve bir- bir artmaqla davam edir. 
+yazilis qaydasi asagidaki kimidir.
+
+``` bash
+UserID int identity(1,1) primary key;
+```
+
+# char(n) ve varchar(n) ferqi nedir ?
+char(n) = qeyd olunan character sayini sql'in yaddasinda yer ayrir , ve daxil etdiyimiz melumatin character sayini
+nezere almadan eyni qeder yaddas saxlamis olur. onun ucun biz deqiq deyerleri olan melumat saxlamaliyiq.
+meselen : FIN kod kimi . cunki hamida 7 character'den ibaretdir.
+
+varchar(n) = ise char(n) ferqli olaraq daxil etdiyimiz melumatin character sayina gore hereket edir. artiq qalan hisseni oz yaddasindan silir. 
+meselen : ad , soyad , email , olke adlari ve.s daxil etmek olar bu data type uzre.
+
