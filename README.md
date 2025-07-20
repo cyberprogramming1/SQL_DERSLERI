@@ -288,15 +288,18 @@ WHERE UserID = 1;
 
 # Primary Key nedir ve identity(1,1) nedir ?
 primary key - cedvel yaradanda bize lazim olan ID'lerin (tek) yeni unique olmasidir. bu prosesi sql'de 
-tesdiq eden primary key sayilir.
+tesdiq eden primary key sayilir. 
 
-identity (1,1) = ise bizim qeyd etdiyimiz ID'lerin deyerlerini ardicillgini berpa etmesi ucundur. 
-hal hazirda yazdigimi (1,1) formasi o demekdir ki id = 1 den baslayir ve bir- bir artmaqla davam edir. 
+*Note : Primary Key - null (bos) ola bilmez. ve deyeri tek (unikal) olmalidir.
+
+IDENTITY(1,1) — ise bizim qeyd etdiyimiz ID'lerin deyerlerini ardicillgini berpa etmesi ucundur. 
+bu o deməkdir ki, UserID avtomatik olaraq 1-dən başlayacaq və hər yeni sətrə 1 artırılacaq şəkildə təyin olunacaq.
 yazilis qaydasi asagidaki kimidir.
 
 ``` bash
-UserID int identity(1,1) primary key;
+UserID int identity(1,1) primary key ;
 ```
+
 
 # char(n) ve varchar(n) ferqi nedir ?
 char(n) = qeyd olunan character sayini sql'in yaddasinda yer ayrir , ve daxil etdiyimiz melumatin character sayini
@@ -305,4 +308,84 @@ meselen : FIN kod kimi . cunki hamida 7 character'den ibaretdir.
 
 varchar(n) = ise char(n) ferqli olaraq daxil etdiyimiz melumatin character sayina gore hereket edir. artiq qalan hisseni oz yaddasindan silir. 
 meselen : ad , soyad , email , olke adlari ve.s daxil etmek olar bu data type uzre.
+
+# not null ve null ifadesi
+* NULL – Boş dəyərdir, yəni məlumat verilməyib.
+* NOT NULL – Mütləq məlumat verilməlidir, boş qala bilməz.
+Misal:
+```bash
+Ad VARCHAR(50) NOT NULL → Ad yazmaq məcburidir.
+Soyad VARCHAR(50) NULL → Soyad boş qala bilər.
+```
+# Default deyeri ne demekdir .
+DEFAULT – Sütun üçün əvvəlcədən təyin olunmuş dəyərdir. İstifadəçi dəyər yazmasa, bu dəyər avtomatik yazılır.
+Misal:
+```bash
+PageSize int default 50
+```
+Izah: yeni eger men pagesize her hansi bir deyer vermesem , onda automatik olaraq deyeri 50 qebul edecek.
+
+# Table'dan melumatlari nece oxumaq olar.
+Melumatlari oxumaq ucun select emrinden istifade etmek lazimdir, indi size butun alternativ variantlari gosterecem.
+
+1. Bütün məlumatları oxumaq: Cədvəldəki bütün sətirləri və sütunları göstərir.
+```bash
+SELECT * FROM table_adi;
+```
+2. Yalnız istədiyin sütunları göstərir (məsələn: ad, soyad).
+```bash
+SELECT column1, column2 FROM table_adi;
+```
+3. Şərt ilə məlumatları oxumaq (WHERE)
+```bash
+SELECT * FROM table_adi WHERE column1 = 'deyer';
+```
+Məsələn: SELECT * FROM users WHERE city = 'Baku';
+
+4. Sıralamaq (ORDER BY)
+```bash
+SELECT * FROM table_adi ORDER BY column1 ASC;  -- artan sıra
+SELECT * FROM table_adi ORDER BY column1 DESC; -- azalan sıra
+```
+5. Məhdud sayda sətir göstərmək (LIMIT) = İlk 10 sətiri göstərir.
+```bash
+SELECT * FROM table_adi LIMIT 10;
+```
+6. Unikal dəyərləri almaq (DISTINCT) = Eyni olanları təkrarlamadan göstərir.
+```bash
+SELECT DISTINCT column1 FROM table_adi;
+```
+7. Şərtləri birləşdirmək (AND, OR)
+```bash
+SELECT * FROM table_adi WHERE column1 = 'x' AND column2 = 'y';
+SELECT * FROM table_adi WHERE column1 = 'x' OR column2 = 'y';
+```
+8. Axtarış etmək (LIKE) = % – istənilən simvol sayı üçün istifadə olunur (wildcard).
+```bash
+SELECT * FROM table_adi WHERE column1 LIKE '%text%';
+```
+9. Aralıqda olan məlumatları seçmək (BETWEEN) 
+Bu BETWEEN ifadəsi sətirləri müəyyən bir aralıqda olan dəyərlərə görə seçmək üçündür.
+```bash
+SELECT * FROM table_adi WHERE column1 BETWEEN 10 AND 50;
+```
+Gəlin bir real nümunəyə baxaq:
+```bash
+CREATE TABLE telebeler (
+    ad VARCHAR(50),
+    yas INT
+);
+
+-- Nümunə məlumatlar:
+INSERT INTO telebeler (ad, yas) VALUES
+('Murad', 18),
+('Nihat', 22),
+('Nurlan', 25),
+('Cavid', 30),
+('Raul', 35);
+
+-- select sorgusu vasitesile ile istifade edeceyik
+SELECT * FROM telebeler WHERE yas BETWEEN 20 AND 30;
+```
+*Note : burada yaratdigimiz cedvelden yalniz yasi 20-30 arasi olanlari gosterecek. (Nihat, Nurlan, Cavid)
 
